@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS rental_point(
+    id SERIAL PRIMARY KEY,
+    address TEXT NOT NULL
+);
