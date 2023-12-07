@@ -1,5 +1,7 @@
 import Main from './views/Main.js'
 import BicycleInfo from './views/BicycleInfo.js';
+import Booking from './views/Booking.js';
+import Trip from './views/Trip.js';
 import Settings from "./views/Settings.js";
 function navigate_to(url) {
     history.pushState(null, null, url)
@@ -10,7 +12,9 @@ async function router() {
         {path: new RegExp('^/$'), view: Main},
         // {path: '/posts', view: ()=>console.log('view posts')},
         {path: new RegExp('^/bicycle/\d*'), view: BicycleInfo},
-        {path: new RegExp('^/settings$'), view: Settings}
+        {path: new RegExp('^/settings$'), view: Settings},
+        {path: new RegExp('^/booking$'), view: Booking},
+        {path: new RegExp('^/trips/.'), view: Trip}
     ]
 
     let match = routes[0]

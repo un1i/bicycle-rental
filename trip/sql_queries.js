@@ -3,6 +3,17 @@ class SQLQuery{
         return 'INSERT INTO booking (name, phone_number, date, rental_point_id, bicycle_id, booking_status_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *'
     }
 
+    get_booking() {
+        return 'SELECT booking.bicycle_id as bicycle_id, booking.date AS date, rental_point.address AS rental_point_addr, bicycle.name AS bicycle_name, booking.booking_status_id AS booking_status_id  FROM booking INNER JOIN bicycle ON booking.bicycle_id = bicycle.id INNER JOIN rental_point ON booking.rental_point_id = rental_point.id  WHERE booking.id = $1'
+    }
+
+    get_active_trip() {
+        return 'SELECT * FROM trip WHERE id = $1'
+    }
+    get_completed_trip() {
+        return 'SELECT trip.id AS id, trip.status_id AS status_id, trip.date_start AS date_start, trip.date_finish AS date_finish, trip.cost AS cost, rental_point.address AS rental_point_finish_addr, start_rental_point.address AS rental_point_start_addr FROM trip INNER JOIN rental_point ON trip.rental_point_finish_id = rental_point.id INNER JOIN booking ON booking.id = trip.id INNER JOIN rental_point AS start_rental_point ON booking.rental_point_id = start_rental_point.id  WHERE trip.id = $1'
+    }
+
     close_booking() {
         return 'UPDATE booking SET booking_status_id = 0 WHERE id = $1'
     }

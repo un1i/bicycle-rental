@@ -1,22 +1,9 @@
 import Base from './Base.js'
+import {create_basic_skeleton} from "../skeleton.js";
 
 function create_bicycle_info(bicycle) {
-    const bicycle_info = document.createElement('div')
-    bicycle_info.className = 'bicycle-info'
-
-    const left = document.createElement('div')
-    left.className = 'left-column'
-    left.innerHTML = `<img src="images/${bicycle.image}" alt="${bicycle.name}"/>`
-    bicycle_info.appendChild(left)
-
-    const right = document.createElement('div')
-    right.className = 'right-column'
-    bicycle_info.appendChild(right)
-
-    const name = document.createElement('div')
-    name.className = 'bicycle-name'
-    name.innerText = bicycle.name
-    right.appendChild(name)
+    const main_block = create_basic_skeleton(bicycle)
+    const right = main_block.getElementsByClassName('right-column')[0]
 
     const desc = document.createElement('div')
     desc.className = 'bicycle-description'
@@ -34,22 +21,23 @@ function create_bicycle_info(bicycle) {
 
     const booking_button = document.createElement('div')
     booking_button.className = 'booking-button'
-    booking_button.innerHTML = '<a href="#">Забронировать</a>'
+    booking_button.innerHTML = `<a href="/booking?id=${bicycle.id}">Забронировать</a>`
     booking.appendChild(booking_button)
 
-    return bicycle_info
+    return main_block
 }
 
 export default class extends Base {
     constructor() {
         super();
-        this.set_title('пока хз')
     }
 
     async make_page() {
         const id = Number(location.pathname.split('/')[2])
         const res = await fetch(`/bicycles/${id}`)
         const bicycle = await res.json()
+
+        this.set_title(bicycle.name)
 
         const container = document.getElementById('content')
         container.innerHTML = ""

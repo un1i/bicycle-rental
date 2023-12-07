@@ -15,6 +15,24 @@ class TripController {
         res.json(trip.rows[0])
     }
 
+    async get_booking(req, res) {
+        const id = req.params.id
+        const booking = await db.query(sql.get_booking(), [id])
+        res.json(booking.rows[0])
+    }
+
+    async get_active_trip(req, res) {
+        const id = req.params.id
+        const trip = await db.query(sql.get_active_trip(), [id])
+        res.json(trip.rows[0])
+    }
+
+    async get_completed_trip(req, res) {
+        const id = req.params.id
+        const trip = await db.query(sql.get_completed_trip(), [id])
+        res.json(trip.rows[0])
+    }
+
     async start_trip(req, res) {
         const id = req.params.id
         const cur_date = new Date()
