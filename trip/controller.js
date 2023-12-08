@@ -10,8 +10,8 @@ function div(x, y) {
 }
 class TripController {
     async book_trip(req, res) {
-        const {name, phone_number, date, rental_point_id, bicycle_id} = req.body
-        const trip = await db.query(sql.insert_booking(), [name, phone_number, date, rental_point_id, bicycle_id, 1])
+        const {name, phone_number, date, rental_point_id, user_id, bicycle_id} = req.body
+        const trip = await db.query(sql.insert_booking(), [name, phone_number, date, rental_point_id, user_id, bicycle_id, 1])
         res.json(trip.rows[0])
     }
 

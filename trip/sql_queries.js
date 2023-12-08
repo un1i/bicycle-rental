@@ -1,6 +1,6 @@
 class SQLQuery{
     insert_booking() {
-        return 'INSERT INTO booking (name, phone_number, date, rental_point_id, bicycle_id, booking_status_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *'
+        return 'INSERT INTO booking (name, phone_number, date, rental_point_id, user_id, bicycle_id, booking_status_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *'
     }
 
     get_booking() {

@@ -47,7 +47,8 @@ class AuthController {
                 return res.status(400).json({message: "Неверный пароль"})
             }
             const token = generate_access_token(user.id, user.role_id)
-            return res.json({token})
+            res.cookie('auth', token, {maxAge:86400000, httpOnly:true})
+            return res.json({message: "Успешно!"})
 
         }
         catch (e) {
