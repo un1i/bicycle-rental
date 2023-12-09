@@ -11,5 +11,6 @@ router.post('/registration',
     auth_ctr.registration)
 
 router.post('/login', auth_ctr.login)
+router.get('/logout', auth_ctr.logout)
 
 module.exports = router;

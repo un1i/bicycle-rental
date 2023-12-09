@@ -46,3 +46,31 @@ label {
 .cost span::after{
     content: "₽";
 }
+
+.auth-form {
+    position: absolute;
+    margin: auto;
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.auth-form h1, #reg-notification{
+    text-align: center;
+}
+
+.auth-form input {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.auth-form label{
+    margin-left: 16%;
+}
+
+.auth-form button {
+    position: relative;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

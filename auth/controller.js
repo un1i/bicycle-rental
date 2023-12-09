@@ -56,6 +56,17 @@ class AuthController {
             res.status(500).json({message: "Login error"})
         }
     }
+
+    async logout(req, res) {
+        try {
+            res.cookie('auth', '', {maxAge:0, httpOnly:true})
+            res.json({message: 'Успешно!'})
+        }
+        catch (e) {
+            console.log(e)
+            res.status(500).json({message: "Logout error"})
+        }
+    }
 }
 
 module.exports = new AuthController()

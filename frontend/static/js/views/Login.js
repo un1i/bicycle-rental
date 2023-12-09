@@ -1,9 +1,10 @@
 import Base from './Base.js'
 import Main from './Main.js';
+import {create_nav_bar} from '../nav_bar.js'
 
 function create_login_form() {
     const main_block = document.createElement('div')
-    main_block.className = 'login'
+    main_block.className = 'auth-form'
 
     const header = document.createElement('h1')
     header.innerText = 'Вход'
@@ -53,6 +54,7 @@ async function send_data(e) {
     })
 
     if (res.status === 200) {
+        await create_nav_bar()
         history.pushState(null, null, `/`)
         new Main().make_page()
     }

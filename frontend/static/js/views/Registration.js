@@ -3,7 +3,7 @@ import Login from './Login.js'
 
 function create_reg_form() {
     const main_block = document.createElement('div')
-    main_block.className = 'registration'
+    main_block.className = 'auth-form'
 
     const header = document.createElement('h1')
     header.innerText = 'Регистрация'
