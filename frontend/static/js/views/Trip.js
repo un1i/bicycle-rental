@@ -53,7 +53,7 @@ function create_start_trip(block, booking) {
     block.appendChild(rental_point)
 
     const start_button = document.createElement('button')
-    start_button.className = 'start-button'
+    start_button.className = 'button'
     start_button.innerText = 'Начать поездку'
     start_button.onclick = start_trip
     block.appendChild(start_button)
@@ -82,7 +82,7 @@ function create_current_trip(block, trip, rental_points) {
     block.appendChild(select)
 
     const finish_button = document.createElement('button')
-    finish_button.className = 'finish-button'
+    finish_button.className = 'button'
     finish_button.innerText = 'Завершить поездку'
     finish_button.onclick = finish_trip
     block.appendChild(finish_button)

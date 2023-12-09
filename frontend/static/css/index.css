@@ -1,17 +1,34 @@
 body {
     margin: 0;
 }
+
 .cards {
     display: grid;
-    /* Автоматически заполняем на всю ширину grid-контейнера */
     grid-template-columns: repeat(auto-fill, 300px);
     width: 100%;
-    max-width: 1000px; /* Ширина grid-контейнера */
+    max-width: 1000px;
     justify-content: center;
     justify-items: center; /* Размещаем карточку по центру */
     column-gap: 30px; /* Отступ между колонками */
     row-gap: 40px; /* Отступ между рядами */
     margin: 0 auto;
+}
+
+.button {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+}
+
+.button:hover {
+    background-color: #64af3d;
+    cursor: pointer;
 }
 
 .bicycle_card {
@@ -76,6 +93,7 @@ body {
 
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration:none;
+    color: white;
 }
 
 nav {
@@ -109,10 +127,139 @@ nav {
 #registration-nav, #login-nav, #name-nav {
     margin-left: 20px;
     vertical-align: middle;
-    color: white;
 }
 
 #reg-notification {
     font-size: 25px;
     color: green;
+}
+
+.main-block {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+.left-column {
+    width: 65%;
+    position: relative;
+    margin-right: 10px;
+}
+
+.right-column {
+  width: 35%;
+  margin-top: 60px;
+}
+
+.left-column img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bicycle-description {
+    font-size: 25px;
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 25px;
+}
+
+.bicycle-name{
+    font-weight: 1000;
+    font-size: 80px;
+    color: black;
+    padding-bottom: 30px;
+    letter-spacing: -2px;
+}
+
+.booking {
+    display: flex;
+}
+
+.bicycle-cost {
+    width: 30%;
+    font-size: 30px;
+    align-items: center;
+    position: relative;
+}
+
+.bicycle-cost::after {
+    content: "₽/Ч";
+    margin-left: 4px;
+    position: relative;
+}
+
+input, select, label {
+    display: block;
+}
+
+input, select {
+    box-sizing: border-box;
+    width: 70%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input:focus, select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.date, .rental-point, .stopwatch{
+    font-size: 25px;
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.booking-header {
+    font-size: 40px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.cost h2 {
+    display: inline;
+}
+
+.cost span {
+    font-size: 25px;
+}
+
+.cost span::after{
+    content: "₽";
+}
+
+.auth-form {
+    position: absolute;
+    margin: auto;
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.auth-form h1, #reg-notification{
+    text-align: center;
+}
+
+.auth-form input {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.auth-form label{
+    margin-left: 16%;
+}
+
+.auth-form button {
+    position: relative;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

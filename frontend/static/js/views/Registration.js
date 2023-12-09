@@ -27,7 +27,7 @@ function create_reg_form() {
     form.innerHTML += '<label for="password"> Пароль </label>'
     form.innerHTML += '<input type="password" id="password" name="password" required>'
 
-    form.innerHTML += '<button type="submit"> Зарегистрироваться </button>'
+    form.innerHTML += '<button class="button" type="submit"> Зарегистрироваться </button>'
     main_block.appendChild(form)
 
     return main_block

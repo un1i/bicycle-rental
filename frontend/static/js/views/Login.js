@@ -20,7 +20,7 @@ function create_login_form() {
     form.innerHTML += '<label for="password"> Пароль </label>'
     form.innerHTML += '<input type="password" id="password" name="password" required>'
 
-    form.innerHTML += '<button type="submit"> Войти </button>'
+    form.innerHTML += '<button class="button" type="submit"> Войти </button>'
     main_block.appendChild(form)
 
     return main_block

@@ -20,7 +20,7 @@ function create_bicycle_info(bicycle) {
     booking.appendChild(cost)
 
     const booking_button = document.createElement('div')
-    booking_button.className = 'booking-button'
+    booking_button.className = 'button'
     booking_button.innerHTML = `<a href="/booking?id=${bicycle.id}">Забронировать</a>`
     booking.appendChild(booking_button)
 

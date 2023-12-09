@@ -31,7 +31,7 @@ function create_book_form(bicycle, rental_points, user) {
 
     form.innerHTML += `<input type="hidden" name="user-id" value="${user_id}">`
 
-    form.innerHTML += '<button type="submit">Забронировать</button>'
+    form.innerHTML += '<button class="button" type="submit">Забронировать</button>'
 
     return main_block
 }
