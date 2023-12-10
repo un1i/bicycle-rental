@@ -10,7 +10,7 @@ const roles = [
     }
 ]
 async function insert_roles() {
-    for (i in roles) {
+    for (let i in roles) {
         let role = roles[i]
         let new_role = await db.query('INSERT INTO role (id, name) VALUES ($1, $2) RETURNING *',
             [role.id, role.name])

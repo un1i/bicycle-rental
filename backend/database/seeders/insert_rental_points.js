@@ -8,10 +8,22 @@ const rental_points = [
     },
     {
         address: 'Улица Родионова, 107'
+    },
+     {
+        address: 'Львовская улица, 1В'
+    },
+     {
+        address: 'Агрономическая улица, 99'
+    },
+     {
+        address: 'улица Бекетова, 58/2'
+    },
+     {
+        address: 'Проспект Гагарина, 38'
     }
 ]
 async function insert_rental_points() {
-    for (i in rental_points) {
+    for (let i in rental_points) {
         let point = rental_points[i]
         let new_point = await db.query('INSERT INTO rental_point (address) VALUES ($1) RETURNING *',
             [point.address])

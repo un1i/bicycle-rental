@@ -10,7 +10,7 @@ const booking_status = [
     },
 ]
 async function insert_status() {
-    for (i in booking_status) {
+    for (let i in booking_status) {
         let status = booking_status[i]
         let new_status = await db.query('INSERT INTO booking_status (id, name) VALUES ($1, $2) RETURNING *',
             [status.id, status.name])
