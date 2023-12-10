@@ -74,6 +74,12 @@ async function send_data(e) {
     }
     else {
         const info = await res.json()
-        alert(info.message)
+        let msg = info.message + '\n'
+        if (info.errors) {
+            for (let i in info.errors) {
+                msg += info.errors[i].msg + '\n'
+            }
+        }
+        alert(msg)
     }
 }

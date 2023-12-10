@@ -10,6 +10,11 @@ function create_book_form(bicycle, rental_points, user) {
 
     const main_block = create_basic_skeleton(bicycle)
     const right = main_block.getElementsByClassName('right-column')[0]
+
+    const header = document.createElement('h1')
+    header.innerText = 'Бронирование'
+    right.appendChild(header)
+
     const form = document.createElement('form')
     form.id = "booking-form"
     form.method = 'POST'

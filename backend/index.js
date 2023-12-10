@@ -14,9 +14,9 @@ app.use('/rental-points', rental_point)
 app.use('/trip', trip)
 app.use('/auth', auth)
 app.use('/user', user)
-app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
+app.use('/static', express.static(path.resolve(__dirname, '..', 'frontend', 'static')))
 app.use('/images', express.static(path.resolve(__dirname, 'bicycle', 'images')))
 app.get('/*', function(req, res) {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'index.html'))
+    res.sendFile(path.resolve(__dirname, '..', 'frontend', 'index.html'))
 })
 app.listen(PORT);

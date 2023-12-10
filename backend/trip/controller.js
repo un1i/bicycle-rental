@@ -36,6 +36,13 @@ class TripController {
     async start_trip(req, res) {
         const id = req.params.id
         const cur_date = new Date()
+
+        const booking = await db.query(sql.get_booking(), [id])
+        if (new Date(booking.rows[0].date) > cur_date) {
+            res.status(400).json({message: 'Нельзя начать поездку раньше забронированного времени!'})
+            return
+        }
+
         const start_date = get_str_time(cur_date)
         await db.query(sql.close_booking(), [id])
         const trip = await db.query(sql.start_trip(), [id, start_date])

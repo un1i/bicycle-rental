@@ -8,7 +8,8 @@ async function start_trip() {
         new Trip().make_page()
     }
     else {
-        alert('Произошла ошибка при старте поездки, попробуйте еще раз')
+        const info = await res.json()
+        alert(info.message)
     }
 }
 
@@ -38,7 +39,6 @@ function refresh_stopwatch(stopwatch, start_date) {
 
 function create_start_trip(block, booking) {
     const header = document.createElement('h1')
-    header.className = 'local-header'
     header.innerText = 'Бронь'
     block.appendChild(header)
 
@@ -61,7 +61,6 @@ function create_start_trip(block, booking) {
 
 function create_current_trip(block, trip, rental_points) {
     const header = document.createElement('h1')
-    header.className = 'local-header'
     header.innerText = 'Прошло времени:'
     block.appendChild(header)
 
@@ -90,7 +89,6 @@ function create_current_trip(block, trip, rental_points) {
 
 function create_completed_trip(block, trip) {
     const header = document.createElement('h1')
-    header.className = 'local-header'
     header.innerText = 'Поездка завершена'
     block.appendChild(header)
 

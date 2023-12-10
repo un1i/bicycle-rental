@@ -31,6 +31,10 @@ body {
     cursor: pointer;
 }
 
+.button a {
+    color: white;
+}
+
 .bicycle_card {
     width: 225px;
     min-height: 300px;
@@ -93,7 +97,6 @@ body {
 
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration:none;
-    color: white;
 }
 
 nav {
@@ -127,6 +130,7 @@ nav {
 #registration-nav, #login-nav, #name-nav {
     margin-left: 20px;
     vertical-align: middle;
+    color: white;
 }
 
 #reg-notification {
@@ -148,8 +152,8 @@ nav {
 }
 
 .right-column {
-  width: 35%;
-  margin-top: 60px;
+    width: 35%;
+    margin-left: 10px;
 }
 
 .left-column img {
@@ -161,8 +165,8 @@ nav {
 
 .bicycle-description {
     font-size: 25px;
-  border-bottom: 1px solid #E1E8EE;
-  margin-bottom: 25px;
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 25px;
 }
 
 .bicycle-name{
@@ -216,10 +220,6 @@ input:focus, select:focus {
     line-height: 1.5;
 }
 
-.booking-header {
-    font-size: 40px;
-}
-
 label {
     font-size: 20px;
 }
@@ -262,4 +262,9 @@ label {
     margin: auto;
     left: 50%;
     transform: translate(-50%, 0);
+}
+
+.error-404 {
+    margin-left: 20px;
+    font-size: 50px;
 }

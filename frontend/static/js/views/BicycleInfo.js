@@ -5,6 +5,11 @@ function create_bicycle_info(bicycle) {
     const main_block = create_basic_skeleton(bicycle)
     const right = main_block.getElementsByClassName('right-column')[0]
 
+    const name = document.createElement('div')
+    name.className = 'bicycle-name'
+    name.innerText = bicycle.name
+    right.appendChild(name)
+
     const desc = document.createElement('div')
     desc.className = 'bicycle-description'
     desc.innerHTML = `<p>${bicycle.description}</p>`

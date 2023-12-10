@@ -11,10 +11,6 @@ function create_basic_skeleton(bicycle) {
     right.className = 'right-column'
     main_block.appendChild(right)
 
-    const name = document.createElement('div')
-    name.className = 'bicycle-name'
-    name.innerText = bicycle.name
-    right.appendChild(name)
     return main_block
 }
 

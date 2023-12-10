@@ -15,10 +15,17 @@ class AuthController {
         try {
             const errors = validationResult(req)
             if (!errors.isEmpty()) {
-                return res.status(400).json({message: "Ошибка при регистрации", errors})
+                return res.status(400).json({message: "Ошибка при регистрации", errors: errors.array()})
             }
 
-            const {name, phone_number, password} = req.body
+            let {name, phone_number, password} = req.body
+            if (phone_number[0] === '+') {
+                phone_number = '8' + phone_number.slice(2)
+            }
+            else if (phone_number[0] === '7') {
+                phone_number = '8' + phone_number.slice(1)
+            }
+
             const candidate = await db.query(sql.get_user(), [phone_number])
             if (candidate.rows.length) {
                 return res.status(400).json({message: "Пользователь с таким номером телефона уже существует"})
