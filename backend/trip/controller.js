@@ -1,5 +1,7 @@
 const db = require('../database/db')
 const sql = require('./sql_queries')
+const {validationResult} = require('express-validator');
+const change_number_format = require('../change_number_format')
 
 function get_str_time(date) {
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.toLocaleTimeString()}`
@@ -10,7 +12,13 @@ function div(x, y) {
 }
 class TripController {
     async book_trip(req, res) {
-        const {name, phone_number, date, rental_point_id, user_id, bicycle_id} = req.body
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(400).json({message: "Ошибка при бронировании", errors: errors.array()})
+        }
+
+        let {name, phone_number, date, rental_point_id, user_id, bicycle_id} = req.body
+        phone_number = change_number_format(phone_number)
         const trip = await db.query(sql.insert_booking(), [name, phone_number, date, rental_point_id, user_id, bicycle_id, 1])
         res.json(trip.rows[0])
     }

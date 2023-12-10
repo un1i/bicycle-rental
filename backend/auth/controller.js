@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 const {secret} = require('./config')
+const change_number_format = require('../change_number_format')
 
 function generate_access_token(id, role) {
     const payload = {id, role}
@@ -19,12 +20,7 @@ class AuthController {
             }
 
             let {name, phone_number, password} = req.body
-            if (phone_number[0] === '+') {
-                phone_number = '8' + phone_number.slice(2)
-            }
-            else if (phone_number[0] === '7') {
-                phone_number = '8' + phone_number.slice(1)
-            }
+            phone_number = change_number_format(phone_number)
 
             const candidate = await db.query(sql.get_user(), [phone_number])
             if (candidate.rows.length) {
@@ -43,7 +39,8 @@ class AuthController {
 
     async login(req, res) {
         try {
-            const {phone_number, password} = req.body
+            let {phone_number, password} = req.body
+            phone_number = change_number_format(phone_number)
             let user = await db.query(sql.get_user(), [phone_number])
             if (!user.rows.length) {
                 return res.status(400).json({message: "Пользователя с таким номером не существует"})

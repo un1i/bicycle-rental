@@ -44,6 +44,7 @@ function create_book_form(bicycle, rental_points, user) {
 export default class extends Base {
     constructor() {
         super();
+        this.set_title('Бронирование')
     }
 
     async make_page() {
@@ -87,6 +88,13 @@ async function send_data(e) {
             new Trip().make_page()
     }
     else {
-        alert('При бронировании произошла ошибка, попробуйте позже.')
+        const info = await response.json()
+        let msg = info.message + '\n'
+        if (info.errors) {
+            for (let i in info.errors) {
+                msg += info.errors[i].msg + '\n'
+            }
+        }
+        alert(msg)
     }
 }
